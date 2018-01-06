@@ -94,6 +94,12 @@
 
 
 
+#### [常用三角恒等式](https://zh.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E6%81%92%E7%AD%89%E5%BC%8F)
+
+![trifunc4](./images/trifunc4.gif)
+
+
+
 #### 三角形面积
 
 * 海伦公式, ![cheatsheet10](./images/cheatsheet10.gif)
