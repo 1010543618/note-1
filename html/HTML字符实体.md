@@ -1,0 +1,1 @@
+关于 HTML 的字符实体, 可以参考这个 [wiki](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)

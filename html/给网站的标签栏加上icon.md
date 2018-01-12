@@ -6,7 +6,7 @@
 
 不过仔细读了下 `link` 相关的资料发现还是有些细节需要注意
 
-首先 `shortcut` 这个值不是标准的 `rel` 支持的值, 所以不应该再继续使用了, 另外我们可以给图标指定一个大小 `sizes`
+首先 `shortcut` 这个值不是标准的 `rel` 支持的值, 所以不应该再继续使用了(**不过 IE8 还是需要这个值**), 另外我们可以给图标指定一个大小 `sizes`
 
 ```HTML
 <link rel="icon" sizes="32x32" href="test.png" />
@@ -17,6 +17,19 @@
 ```html
 <link rel="icon" sizes="32x32" href="test.png" />
 ```
+
+
+
+那对于 icon 的`link`, 我们需要指定 `type` 属性吗? 其实是可以有的, 不过浏览器也只是作为参考, 所以也可以不加, 对于 .ico 的文件, MIME type 是 image/x-icon, 对于 .png 图片, 则是 image/png.
+
+```html
+<link rel="icon" sizes="32x32" type="image/x-icon" href="test.ico" />
+<link rel="icon" sizes="32x32" type="image/png" href="test.png" />
+```
+
+IE9 和 IE10 要求必须要加 `type` 属性.
+
+
 
 但是这就完了吗?
 
@@ -44,10 +57,18 @@
 
 
 
-所以在 PC 端, 我们只需要这样的就行
+
+
+所以总结一下, 在不需要支持 IE11 以下的 PC 端, 我们只需要这样的就行
 
 ```html
 <link rel="icon" sizes="32x32" href="test.png" />
+```
+
+如果需要支持 IE11 以下
+
+```html
+<link rel="shortcut icon" sizes="32x32" type="image/png" href="test.png" />
 ```
 
 在移动端, 则是
@@ -66,6 +87,7 @@
 
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+* https://bitsofco.de/all-about-favicons-and-touch-icons/
 * http://blog.csdn.net/freshlover/article/details/9310437
 * https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4
 * https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/

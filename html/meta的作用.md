@@ -20,9 +20,9 @@ meta 中的 name 可以有以下值:
 
 * `application-name` 定义了整个页面的应用名, 浏览器可能通过这个字段标识 web 应用, 简单的页面也可以没有这个属性
 * `author` 页面的 author
-* `description` 关于页面内容的简单描述, 一些浏览器会用它作为页面书签中的默认描述
+* `description` 关于页面内容的简单描述, 一些浏览器会用它作为页面书签中的默认描述, 以及搜索引擎对该页面的描述也会用它, 据说有 150 个字符的限制
 * `generator` 表明页面是由什么工具生成的, 好像没什么卵用
-* `keywords` 包含了页面相关的关键词, 对应的 `content` 属性中用逗号分隔关键词
+* `keywords` 包含了页面相关的关键词, 对应的 `content` 属性中用逗号分隔关键词, 不过现在这个也没什么用了, 因为搜索引擎会忽略它
 * `referrer` 基本类似 HTTP 的 referrer 头, 控制着从当前页面发出的请求是否应该带 referrer 头, **动态插入的该属性 meta 标签会使得 referrer 的行为不可预料**. 支持的值具体参考 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 * `robots` 作用同 [robots.txt](https://zh.wikipedia.org/wiki/Robots.txt),  控制搜索引擎的行为, 但是搜索引擎爬虫还是会爬这个页面, 如果要避免消耗带宽, 还是要用 robots.txt(这东西比起页面来说还是小很多), 对应的 `content` 属性中用逗号分隔. 不知道它和 robots.txt 的优先级是什么样(待测试), 支持的值具体参考 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 * `viewport`, 给移动端用的, 具体作用看浏览器适配相关的内容, 对应的 `content` 属性支持的值参考 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)

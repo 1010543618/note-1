@@ -2,7 +2,7 @@
 
 首先 `link` 标签可以出现的位置基本等同于 `meta`, 并且也支持通用属性([global attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)). 以下是 link 支持的属性:
 
-* `href` 这个应该是最重要的了, 基本上每个 `link` 标签都会有, 指定链接的资源 URL.
+* `href` 这个应该是最重要的了, 基本上每个 `link` 标签都会有, 指定链接的资源 URL. 一个微乎其微的性能提升点是在页面是 Gzip 的情况下, 把这个属性写在标签的开头会好点, 因为 `a` 也用 `href` 属性(大概是因为压缩算法的原因?)
 
 * `rel` 表明 `link` 指向的资源(`href` 所指的资源)和当前页面之间的关系, 可以有多个值, 它们之间用空格分隔, 具体支持的值可以参考 https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types, `a` 标签也支持这个属性, 以下列几个常用的
 
