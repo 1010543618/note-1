@@ -88,6 +88,7 @@ IE9 和 IE10 要求必须要加 `type` 属性.
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
 * https://bitsofco.de/all-about-favicons-and-touch-icons/
+* https://github.com/audreyr/favicon-cheat-sheet
 * http://blog.csdn.net/freshlover/article/details/9310437
 * https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4
 * https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/
