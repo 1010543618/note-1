@@ -208,6 +208,7 @@ h1~p {
 * `::first-letter`
 * `::first-line`
 * `::selection` 表示被选中的内容, 总感觉这应该要是个伪类
+* `::placeholder` 用于 `<input>` `<textarea>`, 虽然不是标准的, 不过也比较常用
 
 其他的参考 https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
 
