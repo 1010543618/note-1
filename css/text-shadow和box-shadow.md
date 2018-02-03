@@ -40,7 +40,7 @@ text-shadow: offset-x offset-y [blur-radius] color[, offset-x offset-y [blur-rad
 
 ![img7](./images/img7.png)
 
-参考 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/shadow/demo0.html)
+参考 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/css/shadow/demo0.html)
 
 
 
@@ -127,4 +127,4 @@ box-shadow: [inset] offset-x offset-y [blur-radius] [spread-radius] color[[inset
 
 ![img13](./images/img13.png)
 
-参考 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/shadow/demo1.html)
+参考 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/css/shadow/demo1.html)
