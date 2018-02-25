@@ -116,6 +116,18 @@ p {
 
 
 
+属性选择器可以组合多个
+
+```css
+input[type="password"][value$="a"] {
+  background-image: url("http://localhost:3000/a");
+}
+```
+
+选择类型为 password 且最后一个字母为 a 的 `<input>`.
+
+
+
 #### 运算符
 
 从右往左结合, 优先级越大的结合性越高

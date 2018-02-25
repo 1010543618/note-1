@@ -17,7 +17,7 @@
 * 根元素
 * `z-index` 不为 auto 的绝对/相对定位
 * fixed 定位或 sticky 定位的元素
-* 一个 `z-index` 不为 auto 的 flexbox(`display: flex` / `display: inline-flex`) 的子元素
+* 一个 `z-index` 不为 auto 的 flexbox(`display: flex` / `display: inline-flex`) 的子元素, 即 flex item
 * 一个 `opacity` 小于 1 的元素
 * 一个 `mix-blend-mode` 不为 normal 的元素
 * 以下属性不为 none 的元素
@@ -26,7 +26,7 @@
   * `perspective`
   * `clip-path`
   * `mask` / `mask-image` / `mask-border`
-* `isolation` 未 isolate 的元素
+* `isolation` 为 isolate 的元素
 * `-webkit-overflow-scrolling` 为 touch 的元素
 * `will-change` 中指定了任意 CSS 属性的元素
 
@@ -36,7 +36,7 @@
 
 #### z-index
 
-关于 `z-index` 其实没太多好说的, 只要记住它的默认值是 auto, 并且 `z-index: 0` 比 `z-index: auto` 高.
+关于 `z-index` 其实没太多好说的, 只要记住它的默认值是 auto, 并且只作用于定位元素(非 static 定位).
 
 
 
@@ -91,3 +91,5 @@ static 定位的元素 < float 的元素 < `z-index:auto` 且 relative 的元素
 * https://webdesign.tutsplus.com/zh-hans/articles/what-you-may-not-know-about-the-z-index-property--webdesign-16892
 * http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/
 * http://web.jobbole.com/92121/
+* https://zhuanlan.zhihu.com/p/33984503
+

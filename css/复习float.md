@@ -1,21 +1,22 @@
 使用 float 意味着使用块布局(block layout), 它可能会修改 `display` 的计算值, 即一个原本 `display: inline;` 的元素, 在使用 float 之后, 实际上相当于 `display: block;`, 具体的对应关系, 可以参考下表:
 
-| **display**        | **computed value**       |
-| ------------------ | ------------------------ |
-| inline             | block                    |
-| inline-block       | block                    |
-| inline-table       | table                    |
-| table-row          | block                    |
-| table-row-group    | block                    |
-| table-column       | block                    |
-| table-column-group | block                    |
-| table-cell         | block                    |
-| table-caption      | block                    |
-| table-header-group | block                    |
-| table-footer-group | block                    |
+| **display**        | **computed value**           |
+| ------------------ | ---------------------------- |
+| inline             | block                        |
+| inline-block       | block                        |
+| inline-table       | table                        |
+| table-row          | block                        |
+| table-row-group    | block                        |
+| table-column       | block                        |
+| table-column-group | block                        |
+| table-cell         | block                        |
+| table-caption      | block                        |
+| table-header-group | block                        |
+| table-footer-group | block                        |
 | flex               | flex, 并且 float 无效        |
 | inline-flex        | inline-flex, 并且 float 无效 |
-| 其他                 | 不改变                      |
+| inline-grid        | grid                         |
+| 其他               | 不改变                       |
 
 注意如果通过 js 修改 float 的话, 在 FF34 或者 IE8 及以下时, 是 `element.style.cssFloat` 和 `element.style.styleFloat`, 因为 float 在 js 中是保留字.
 
