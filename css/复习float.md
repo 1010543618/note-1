@@ -89,7 +89,7 @@
 
 #### 关于规则 5 的解释
 
-规则 5 比较简单, 正如它的字面意思, 即浮动元素 margin-box 顶部不会比它前面的浮动元素 margin-box 或块级元素的??的顶部.
+规则 5 比较简单, 正如它的字面意思, 即浮动元素 margin-box 顶部不会比它前面的浮动元素 margin-box 或块级元素的 margin-box 的顶部.
 
 考虑 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/css/float/demo3.html) 中的第一种情况
 

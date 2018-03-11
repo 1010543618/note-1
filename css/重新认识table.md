@@ -6,6 +6,7 @@
 * inline-table
 * table-row
 * table-row-group
+* table-header-group
 * table-footer-group
 * table-column
 * table-column-group
@@ -150,6 +151,8 @@ table {
 
 * `top` 默认值, `<caption>` 放在 TB 上面
 * `bottom` `<caption>` 放在 TB 下面
+
+
 
 
 
