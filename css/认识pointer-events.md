@@ -141,3 +141,4 @@ window.onload = function () {
 
 * https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
 * https://juejin.im/post/59bb2ec16fb9a00a5a31deab
+* http://www.zhangxinxu.com/wordpress/2011/12/css3-pointer-events-none-javascript/
