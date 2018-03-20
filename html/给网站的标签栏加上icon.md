@@ -58,6 +58,14 @@ IE9 和 IE10 要求必须要加 `type` 属性.
 
 
 
+另外, 对于 Chrome for Android, 现在支持更大尺寸的 icon 了, 推荐是 192x192 的 png 图片.
+
+```css
+<link rel="icon" sizes="192x192" href="test.png" />
+```
+
+
+
 
 所以总结一下, 在不需要支持 IE11 以下的 PC 端, 我们只需要这样的就行
 
@@ -75,6 +83,7 @@ IE9 和 IE10 要求必须要加 `type` 属性.
 
 ```html
 <link rel="icon" sizes="32x32" href="test.png" />
+<link rel="icon" sizes="192x192" href="test.png" />
 <link rel="apple-touch-icon" href="touch-icon-iphone.png">
 <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
 <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
@@ -92,3 +101,4 @@ IE9 和 IE10 要求必须要加 `type` 属性.
 * http://blog.csdn.net/freshlover/article/details/9310437
 * https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4
 * https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/
+* https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
