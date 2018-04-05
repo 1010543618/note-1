@@ -73,3 +73,12 @@ i {
 
 
 
+不过有一点需要注意的是, 有些浏览器(据说是 IE 和 FF)对字体文件会应用同源策略, 如果你字体的域和页面的域不一样的话, 会导致字体文件无法加载. 只能通过 CORS 解决了, maybe.
+
+
+
+#### 参考资料
+
+* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+* https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+* https://bugzilla.mozilla.org/show_bug.cgi?id=604421
