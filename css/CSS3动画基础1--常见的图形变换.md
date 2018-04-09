@@ -165,6 +165,13 @@ TRANSFORM-FUNCTION ::= "matrix()" | "translate()" | "translateX()" | "translateY
 
 注意, `transform` 不改变元素原有的大小, 比如缩小一个元素, 边上的元素并不会跟着挤过来, 放大一个元素, 边上的元素也不会被挤开. 尽管如此, 还是建议给 `transform` 的元素单独设置图层, 通过脱离文档流的形式隔离开, 避免在做动画的过程中出现可能的抖动.
 
+另外如果需要通过 JS 操作 `transform`, 建议加上浏览器前缀:
+
+* Opera: OTransform
+* Webkit: webkitTransform
+* IE/Edge: msTransform
+* FF: MozTransform
+
 
 
 ##### translate() / translate3d() / translateX() / translateY() / translateZ()
