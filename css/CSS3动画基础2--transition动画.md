@@ -224,7 +224,7 @@ transition-timing-function: frames(3);
 事件对象继承自 [TransitionEvent](https://developer.mozilla.org/en-US/docs/Web/API/TransitionEvent), 除了其他事件都有的属性, 还有三个需要注意的属性.
 
 * `propertyName` transition 中发生变化的属性名
-* `elapsedTime` 动画执行的事件, 从 `transition-duration` 开始
+* `elapsedTime` 动画执行的时间, 单位秒, 从 `transition-duration` 开始
 * `pseudoElement` 如果发生动画的是伪元素, 可以通过它拿到这个伪元素
 
 
