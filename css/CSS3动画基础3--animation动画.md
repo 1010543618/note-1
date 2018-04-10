@@ -341,16 +341,12 @@ animation-iteration-count: 2, 3;
 ```javascript
 function getPlay(elem, animationClass) {
 	return function (e) {
-		var classNames = elem.className.split(/\s+/), index;
-		if (~(index = classNames.indexOf(animationClass))) {
-			classNames.splice(index, 1);
-			elem.className = classNames.join(' ');
+		elem.classList.remove(animationClass);
+		requestAnimationFrame(function (time) {
 			requestAnimationFrame(function (time) {
-				requestAnimationFrame(function (time) {
-					elem.className = elem.className + ' ' + animationClass;
-				});
+				elem.classList.add(animationClass);
 			});
-		}
+		});
 	};
 }
 window.onload = function () {
@@ -361,7 +357,7 @@ window.onload = function () {
 
 ![img14](./images/img14.gif)
 
-这里简单解释下为什么需要两个 rAF, 熟悉 rAF 的话应该不需要多解释了. 因为修改了 class 之后, 为了确保样式重新计算, 我们需要等修改后的 class 被应用至少一帧. 但是修改 class 可能和第一个 rAF 的 callback 处于同一帧周期内(rAF 的 callback 总是在下一次 repaint 之前被执行), 这样的话新的样式还未生效就又被改回来了. 可能有人会问修改 DOM/class 不是同步的吗? 那改完以后就应该已经应用新的样式了. 的确, 修改 DOM 是同步的, 但是计算/应用样式不一定是同步的. 所以这里需要两个 rAF 确保修改 class 的样式被应用一次.
+这里简单解释下为什么需要两个 rAF, 熟悉 rAF 和浏览器渲染机制的话应该不需要多解释了. 因为修改了 class 之后, 为了确保样式重新计算, 我们需要等修改后的 class 被应用至少一帧. 但是修改 class 可能和第一个 rAF 的 callback 处于同一重绘/重排周期内(应该也是同一帧周期内, rAF 的 callback 总是在下一次 repaint 之前被执行), 这样的话新的样式还未生效就又被改回来了. 可能有人会问修改 DOM/class 不是同步的吗? 那改完以后就应该已经应用新的样式了. 的确, 修改 DOM 是同步的, 但是计算/应用样式不一定是同步的. 所以这里需要两个 rAF 确保修改 class 的样式被应用一次.
 
 > To be sure that the styles are recalculated, we use [`window.requestAnimationFrame()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame), specifying a callback. Our callback gets executed just before the next repaint of the document. The problem for us is that because it's before the repaint, the style recomputation hasn't actually happened yet! So...
 
