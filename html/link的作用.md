@@ -24,11 +24,13 @@
     <link href="test.png" rel="apple-touch-icon" sizes="72x72" />
     ```
 
-  * `dns-prefetch` 实验性的值, 提示浏览器提前对 `link` 的资源进行 DNS 查找.
+  * `dns-prefetch` 实验性的值, 提示浏览器提前对 `link` 的资源进行 DNS 查找, 具体参考 [prefetch,preload和preconnect](./prefetch,preload和preconnect.md)
 
-  * `prefetch` 建议浏览器提前下载 `link` 的资源, TODO
+  * `prefetch` 建议浏览器提前下载 `link` 的资源, 具体参考 [prefetch,preload和preconnect](./prefetch,preload和preconnect.md)
 
-  * `preload` 告诉浏览器下载 `link` 的资源(和 prefetch 的区别?), TODO
+  * `preload` 告诉浏览器下载 `link` 的资源, 具体参考 [prefetch,preload和preconnect](./prefetch,preload和preconnect.md)
+
+  * `preconnect` 具体参考 [prefetch,preload和preconnect](./prefetch,preload和preconnect.md)
 
 * `type` 指定了资源的 MIME type, 通常就用来指定 CSS 文件的 MIME type, `rel="preload"` 的时候也会用它来确保浏览器只下载它支持的资源.
 
@@ -45,7 +47,20 @@
 
 * `hreflang` 指定链接资源的语言, 仅当有 `href` 时有用, 目测没什么卵用.
 
-* `as` ???
+* `as` 配合 `rel="preload"` 和 `rel="prefetch"` 使用, 用来指示资源的用途, 支持的值部分值有以下, 完整的列表参考[标准文档](https://fetch.spec.whatwg.org/#concept-request-destination):
+
+  * `audio` 音频文件
+  * `document` HTML 文档, 通常用于嵌入 `<iframe>`
+  * `embed` 嵌入 `<embed>` 的资源
+  * `fetch` fetch 或 XHR 请求的资源
+  * `font` 字体文件
+  * `image` 图片文件
+  * `object` 同 `embed`
+  * `script` JS 文件
+  * `style` CSS 文件
+  * `track` 字幕文件
+  * `worker` 一个 webworker 或 sharedworker
+  * `video` 视频文件
 
 * `disabled` 非标准 API, 禁用 `link` 的 `rel`, 没事别用, 要用可以用 js dom 对象的 `disabled` 属性.
 

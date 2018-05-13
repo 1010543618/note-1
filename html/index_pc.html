@@ -4,8 +4,19 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link href="test.png" rel="icon" sizes="32x32">
+	<script>
+		window.onerror = function (msg) {
+			var img = new Image();
+			img.src = `http://xxx.com/?errMsg=${JSON.stringify(msg)}`;
+		};
+	</script>
+	<link rel="dns-prefetch" href="//www.xxx.com">
+	<link rel="stylesheet" href="demo.css" type="text/css">
+	<link rel="preload" href="//xxx.com/xxx.woff" as="font" type="font/woff" crossorigin="anonymous">
+	<link rel="preload" href="//xxx.com/xxx-defer.js" as="script" type="application/javascript">
+
 	<title>Document</title>
+	<link href="test.png" rel="icon" sizes="32x32">
 
 	<!-- <meta name="application-name" content="webapp"> -->
 	<meta name="author" content="ta7sudan">

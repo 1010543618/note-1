@@ -104,7 +104,12 @@ CSS 工作组为此提出了新方案：为 `@font-face` 增加新的 `font-disp
 
 
 
+最后补充一点个人建议, 将字体通过 `preload` 进行预加载有助于性能优化.
+
+
+
 #### 参考资料
 
 * https://developers.google.com/web/updates/2016/02/font-display
 * https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
+* https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization

@@ -3,14 +3,14 @@
 ```css
 @font-face {
   font-family: 'myfont';
+  font-weight: normal;
+  font-style: normal;
   src: url('fonts/cicle_fina-webfont.eot');
   src: url('fonts/cicle_fina-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/cicle_fina-webfont.woff2') format('woff2'),
          url('fonts/cicle_fina-webfont.woff') format('woff'),
          url('fonts/cicle_fina-webfont.ttf') format('truetype'),
          url('fonts/cicle_fina-webfont.svg#myfont') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 ```
 
@@ -82,3 +82,4 @@ i {
 * https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
 * https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 * https://bugzilla.mozilla.org/show_bug.cgi?id=604421
+* https://drafts.csswg.org/css-fonts/#font-fetching-requirements

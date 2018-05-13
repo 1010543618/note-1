@@ -4,13 +4,25 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<script>
+		window.onerror = function (msg) {
+			var img = new Image();
+			img.src = `http://xxx.com/?errMsg=${JSON.stringify(msg)}`;
+		};
+	</script>
+	<link rel="dns-prefetch" href="//www.xxx.com">
+	<link rel="stylesheet" href="demo.css" type="text/css">
+	<link rel="preload" href="//xxx.com/xxx.woff" as="font" type="font/woff" crossorigin="anonymous">
+	<link rel="preload" href="//xxx.com/xxx-defer.js" as="script" type="application/javascript">
+
+	<title>Document</title>
+
 	<link href="test.png" rel="icon" sizes="32x32">
 	<link href="test.png" rel="icon" sizes="192x192">
 	<link href="touch-icon-iphone.png"rel="apple-touch-icon">
 	<link href="touch-icon-ipad.png" rel="apple-touch-icon" sizes="152x152">
 	<link href="touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="180x180">
 	<link href="touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="167x167">
-	<title>Document</title>
 
 	<!-- <meta name="theme-color" content="#ff0000"> -->
 	<!-- <meta name="application-name" content="webapp"> -->

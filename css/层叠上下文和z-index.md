@@ -28,7 +28,7 @@
   * `mask` / `mask-image` / `mask-border`
 * `isolation` 为 isolate 的元素
 * `-webkit-overflow-scrolling` 为 touch 的元素
-* `will-change` 中指定了任意 CSS 属性的元素
+* `will-change` 中指定了任意 CSS 属性的元素(实测并不是, 而是 `transform` `opacity` 等值才会创建)
 
 值得注意的是 `float` 和 `z-index: auto` 的 absolute/relative 的元素是没有创建层叠上下文的.
 
