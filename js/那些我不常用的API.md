@@ -1,2 +1,3 @@
 * `ChildNode.remove()` 元素将自身从 DOM 中删除(https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove), 再也不用通过父元素删除了 `Node.removeChild()`
 * `Element.classList` 再也不用通过 className 操作元素的 class了 (https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+* `document.currentScript` 获取当前 js 所属的 `<script>` 元素

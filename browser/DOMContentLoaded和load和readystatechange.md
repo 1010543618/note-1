@@ -39,7 +39,7 @@ document.onreadystatechange = function () {
 
 说 `interactive` 可以用 `DOMContentLoaded` 替代, 真的是这样吗?
 
-还是看 demo 吧.
+还是看 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/js/script-loading/demo0.html) 吧.
 
 ```html
 <!DOCTYPE html>
@@ -67,10 +67,10 @@ document.onreadystatechange = function () {
 </head>
 <body>
 	<div class="main">test</div>
-	<!-- <img src="http://127.0.0.1:3000/img" alt="img"> -->
-	<!-- <script src="http://127.0.0.1:3000/js"></script> -->
-	<!-- <script src="http://127.0.0.1:3000/js" defer></script> -->
-	<!-- <link rel="stylesheet" href="http://127.0.0.1:3000/css" type="text/css"> -->
+	<!-- <img src="http://127.0.0.1:3000/image-delay-3000" alt="img"> -->
+	<!-- <script src="http://127.0.0.1:3000/js0-delay-3000"></script> -->
+	<!-- <script src="http://127.0.0.1:3000/js0-delay-3000" defer></script> -->
+	<!-- <link rel="stylesheet" href="http://127.0.0.1:3000/css-delay-3000" type="text/css"> -->
 </body>
 </html>
 ```
@@ -115,6 +115,8 @@ document.onreadystatechange = function () {
 
 至于为什么是这样? 个人理解是, 我们先区分 HTML 解析完成和 DOM 树构建完成两个概念, `interactive` 应该是 HTML 解析完立即触发, `DOMContentLoaded` 则是 DOM 树构建完立即触发, 之所以要等 defer 的脚本执行完才触发 `DOMContentLoaded` 是因为 defer 的脚本也可能修改 DOM, 等它们执行完后说明 DOM 构建完成了. 当然这个结论可能有误, 标准文档里也肯定有完整的解释, 只不过太长了我也没仔细看...
 
+*补充: 实际测试 `interactive` 的时候 DOM 树也构建完了*
+
 
 
 **延迟 3s 的 CSS**
@@ -131,7 +133,7 @@ document.onreadystatechange = function () {
 * `document.readyState` 的 `interactive` 和 `DOMContentLoaded` 有什么区别? 
 * `complete` 和 `load` 又有什么区别?
 
-对于第一个问题和第二个问题, `interactive` 在 HTML 解析完之后立即触发, `DOMContentLoaded` 所有 `<script>` 执行完之后并且也是在 DOM 树构建完后立即触发.
+对于第一个问题和第二个问题, `interactive` 在 HTML 解析完之后立即触发(但是实际测试 DOM 树也构建完了), `DOMContentLoaded` 所有 `<script>` 执行完之后并且也是在 DOM 树构建完后立即触发.
 
 对于第三个问题则是简单的 `complete` 在 `load` 之前被触发, 它们都是在所有资源加载完之后触发.
 
@@ -144,6 +146,34 @@ document.onreadystatechange = function () {
 
 其实这些问题去看看 Chromium 源码之类的应该也很好解释, 然而菜鸡如我并不能看懂...不过好在标准文档也有详细说明.
 
+关于 `interactive` 的时候 DOM 树是否构建完成, 我们可以构造一个不严谨的 demo.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script>
+		document.addEventListener('readystatechange', function (e) {
+			if (document.readyState == 'interactive') {
+				var target = document.getElementsByClassName('target')[0];
+				console.log(target);
+			}
+		});
+	</script>
+</head>
+<body>
+    <!-- many elements -->
+	<div class="target">target</div>
+</body>
+</html>
+```
+
+最终得到的结果是可以正确获取到元素而不是 `undefined`. 基本上可以反映此时 DOM 树已经构建完成. 参考 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/js/script-loading/demo1.html).
+
 
 
 #### 参考资料
@@ -154,5 +184,6 @@ document.onreadystatechange = function () {
 * https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState
 * https://www.w3.org/TR/html5/fullindex.html#eventdef-global-readystatechange
 * https://www.w3.org/TR/html5/syntax.html#the-end
+* https://www.w3.org/TR/html5/semantics-scripting.html#script-processing-model
 * https://stackoverflow.com/questions/3665561/document-readystate-of-interactive-vs-ondomcontentloaded
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script

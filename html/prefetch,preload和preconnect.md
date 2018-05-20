@@ -257,6 +257,7 @@ onload
 
 * 对一个资源同时使用 prefetch preload 可能导致重复请求
 * 没有 `crossorigin` 的 preload 的字体会重复请求(实测), 另外规范也是这么要求的(Preload links for CORS enabled resources, such as fonts or images with a `crossorigin` attribute, must also include a `crossorigin` attribute, in order for the resource to be properly used.)
+* 存在 `integrity` 的资源使用 preload 也会重复请求
 
 
 
