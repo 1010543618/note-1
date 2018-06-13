@@ -27,6 +27,14 @@
 
   * `let g:ruby_host_prog='C:/Devtools/Ruby24/bin/ruby.exe'`
 
+* 添加 node 支持
+
+  * `npm i -g neovim`
+
+* 设置 node 路径
+
+  * `let g:node_host_prog  = 'C:\Devtools\Nodejs\node.exe'`
+
 * 检查各项支持是否 OK `:CheckHealth` 或者单独检查 python `:echo has("python3")` (返回 1 OK)等等
 
 * 安装 vim-plug, 到 Github 下载 plug.vim, 放到 ~/AppData/Local/nvim/autoload/plug.vim
