@@ -42,5 +42,6 @@ fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
 alias ls='ls -F --color=auto --show-control-chars'
+alias vim='/C/Devtools/Vim/vim.exe'
 ```
 

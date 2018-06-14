@@ -49,3 +49,7 @@
     ```
 
 * 配置其他插件
+
+* 如果用 Vim 的话, 可在 https://github.com/micbou/vim-for-windows 或 https://tuxproject.de/projects/vim/ 找到预编译的支持 py2, py3 的二进制文件, 不用加环境变量, 记得在 git bash 的 git-prompt.sh 或者 aliases.sh 中加个 alias 就好, 不过 Neovim 也得有个, 给 VSCode 用
+
+* 记得改下 Ultisnips 的 snippet

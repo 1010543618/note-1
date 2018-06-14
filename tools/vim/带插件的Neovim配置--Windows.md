@@ -38,13 +38,17 @@ set fdm=indent "set foldmethod 根据缩进折叠
 set fdl=99 "set foldlevel
 
 "Themes
-set t_Co=256
+"set t_Co=256 "256色, 对于win下vim就不用这个了,win下nvim有没有都一样
 set bg=dark "set background 设置背景色
-colorscheme elflord "还是用默认主题, win下其他主题显示都很蛋疼, 其他主题记得放到插件加载之后
+colorscheme delek "还是用默认主题, win下其他主题显示都很蛋疼, 其他主题记得放到插件加载之后
 hi Pmenu      ctermfg=White ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
 hi PmenuSel  ctermfg=Black ctermbg=DarkRed guifg=#ff0000 guibg=#00ff00
 hi PmenuSbar  ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
 hi PmenuThumb ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
+hi CursorLine cterm=none ctermfg=DarkYellow ctermbg=none
+hi SpellBad cterm=none ctermfg=DarkRed ctermbg=none
+hi NonText guifg=bg "删除行号的波浪线, 然而这个win下nvim会报错找不到bg color
+hi NonText ctermfg=bg "删除行号的波浪线
 
 "Indent
 set cin  "set cindent c语言自动缩进
@@ -83,18 +87,6 @@ inoremap jk <Esc>
 nnoremap <Leader>p "+p
 vnoremap <Leader>y "+y
 "nnoremap <c-\> :vs<CR>
-au FileType c,c++,java,php,javascript,css inoremap <c-j> <Esc>A;<CR>
-au FileType c,c++,java,php,javascript,css inoremap ;; <Esc>A;
-
-
-
-"set shell=C:/Devtools/Git/bin/bash.exe "设置shell
-"hi NonText guifg=bg "删除行号的波浪线
-"hi NonText ctermfg=bg
-"**************************************************
-
-
-"*********** Neovim ************
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
@@ -104,7 +96,16 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+au FileType c,c++,java,php,javascript,css inoremap <c-j> <Esc>A;<CR>
+au FileType c,c++,java,php,javascript,css inoremap ;; <Esc>A;
 
+
+
+"set shell=C:/Devtools/Git/bin/bash.exe "设置shell, win下设置为git bash会导致git相关插件崩掉
+"**************************************************
+
+
+"*********** Neovim ************
 let g:python_host_skip_check=1
 let g:python3_host_skip_check=1
 let g:ruby_host_skip_check=1
@@ -114,7 +115,7 @@ let g:ruby_host_prog='C:/Devtools/Ruby24/bin/ruby.exe'
 let g:node_host_prog  = 'C:/Devtools/Nodejs/node.exe'
 "***********************************************
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged') "nvim下是~/.local/share/nvim/plugged
 Plug 'vim-airline/vim-airline'
 Plug 'pangloss/vim-javascript' ", { 'for': 'javascript' }
 Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
@@ -230,7 +231,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 "ultisnips
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetsDir = '~/.local/share/nvim/UltiSnips'
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips' "win下nvim是~/.local/share/nvim/UltiSnips
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="ll"
@@ -259,19 +260,20 @@ let g:deoplete#enable_at_startup = 1
 "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 "
 
+"vim下不需要这个,nvim需要
 "没有什么是一个settimeout不能解决的, 如果有, 那就再加1s
-if has('timers')
-  func! MyHolyShit(timer)
-    set bg=dark 
-    colorscheme elflord
-    hi Pmenu      ctermfg=White ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
-    hi PmenuSel  ctermfg=Black ctermbg=DarkRed guifg=#ff0000 guibg=#00ff00
-    hi PmenuSbar  ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
-    hi PmenuThumb ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
-  endfunc
-  "为什么要500ms呢, 因为时间短了mark这个插件有bug用不了...必须看配色闪烁一下才能用,非常ZZ
-	let timer = timer_start(800, 'MyHolyShit')
-  "nnoremap <Leader>wf :call MyHolyShit('a')<CR>
-endif
+"if has('timers')
+"  func! MyHolyShit(timer)
+"    set bg=dark 
+"    colorscheme delek
+"    hi Pmenu      ctermfg=White ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
+"    hi PmenuSel  ctermfg=Black ctermbg=DarkRed guifg=#ff0000 guibg=#00ff00
+"    hi PmenuSbar  ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
+"    hi PmenuThumb ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
+"  endfunc
+"  "为什么要500ms呢, 因为时间短了mark这个插件有bug用不了...必须看配色闪烁一下才能用,非常ZZ
+"	let timer = timer_start(800, 'MyHolyShit')
+"  "nnoremap <Leader>wf :call MyHolyShit('a')<CR>
+"endif
 ```
 
