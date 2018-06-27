@@ -158,6 +158,43 @@ class Person {
 
 
 
+#### 一些实践中的问题
+
+在前面的例子中, 我们的 getter/setter 都类似下面这样.
+
+```javascript
+var obj = {
+    get name() {
+        return this._name;
+    },
+    set name(val) {
+        this._name = val;
+    }
+};
+```
+
+看上去并没有什么毛病, 但是我们默认了 `_name` 是一个私有属性, 那意味着我们不希望它暴露出来, 然而大多数时候, 在设计一个对象或者 class 时, 我们都没有仔细考虑过这个问题, 所以这里的 `_name` 是可以在外部访问到的, 并且可以被 `for...in` `Object.keys()` 枚举, 显然这不会是我们期望的. 所以在写 getter/setter 的时候, 最好先确认下这些内部属性是否要暴露, 以及是否可以被枚举.
+
+
+
+#### 补充
+
+在 IE9 之前, 也可以用 `__defineGetter__()` 和 `__defineSetter__()` 来实现, eg.
+
+```javascript
+var obj = {};
+obj.__defineGetter__('name', function() {
+    return this._name;
+});
+obj.__defineSetter__('name', function(val) {
+    this._name = val;
+});
+```
+
+
+
+
+
 #### 参考资料
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty

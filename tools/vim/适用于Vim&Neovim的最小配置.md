@@ -13,12 +13,12 @@ set noswf "set noswapfile 禁止生成.swp文件
 set ru "set ruler 设置标尺，状态栏显示当前行号列号以及整个文件百分比
 set ch=1 "set cmdheight 设置状态栏高度占两行
 set ar "set autoread 当文件在其他地方被修改时自动读入新文件
-set ve=all "set virtualedit 光标可以在没有字符的位置移动
+"set ve=all "set virtualedit 光标可以在没有字符的位置移动
 set tw=80 "set textwidth 光标超过80列自动换行
 "set cc=80 "set colorcolumn 在80列设置对齐线
 set cul "set cursorline 设置光标处横线
 "set cuc "set cursorcolumn 设置光标处对齐线
-set sm "set showmatch 打开这个选项后，当输入后括号(包括小括号、中括号、大括号) 的时候，光标会跳回前括号片刻，然后跳回来 
+"set sm "set showmatch 打开这个选项后，当输入后括号(包括小括号、中括号、大括号) 的时候，光标会跳回前括号片刻，然后跳回来 
 set bs=indent,eol,start "set backspace 删除时可以拼接前后的行
 set mouse=a "允许使用鼠标
 set lz "set lazyredraw 减少刷新和重绘

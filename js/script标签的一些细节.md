@@ -371,7 +371,7 @@ yes or no 意味着该属性对结果没有影响. 通常我们的 `defer` 脚�
 
 #### 动态加载脚本
 
-由于历史原因, 我们可以通过很多种方式实现动态地往页面中插入一段脚本的操作, 比如 `document.write()`, 比如 `document.createElement()`, 比如 `innerHTML`. 我们还可以通过这些方式插入外部脚本, 插入内部脚本, 插入 `async`/`defer` 的脚本. 让我们来考虑一些问题, 在使用不同的方式加载不同的脚本, 它们之间的执行顺序是怎样的? 是当前脚本(执行插入操作的脚本)停止执行, 开始执行新的脚本? 还是先执行当前脚本, 等当前脚本执行完再执行新的脚本?
+由于历史原因, 我们可以通过很多种方式实现动态地往页面中插入一段脚本的操作, 比如 `document.write()`, 比如 `document.createElement()`, 比如 `innerHTML`, 比如 `textContent`, 比如 `document.createTextNode()`. 我们还可以通过这些方式插入外部脚本, 插入内部脚本, 插入 `async`/`defer` 的脚本. 让我们来考虑一些问题, 在使用不同的方式加载不同的脚本, 它们之间的执行顺序是怎样的? 是当前脚本(执行插入操作的脚本)停止执行, 开始执行新的脚本? 还是先执行当前脚本, 等当前脚本执行完再执行新的脚本?
 
 首先我们来看一些 MDN 总结的细节:
 
@@ -588,6 +588,44 @@ document.body.appendChild(script);
 这样是可以执行的.
 
 参考 [demo](https://github.com/ta7sudan/front-end-demo/blob/master/js/script-loading/demo14.html)
+
+
+
+##### textContent 和 textNode
+
+其实动态加载脚本和这两个都没什么关系, 因为它们不能被用来创建元素. 但是它们作为元素的内容是有效的, 即不能指望用 `textContent` 或者 `textNode` 创建一个 `<script>` 并执行它, 但是如果已经有一个创建好的 `<script>` 节点, 可以通过它们设置 `<script>` 的内容, 这样是可以执行的. 另外通过它们修改已有脚本的内容, 也不会触发脚本重新执行. 但是通过它们修改已有的 CSS, 则可以触发重新渲染, 新样式生效.
+
+```javascript
+var div = document.getElementById('test');
+div.textContent = '<script>console.log("xss")<\/script>';
+// 不执行, 只是完全显示出来
+
+var div = document.getElementById('test');
+var text = document.createTextNode('<script>console.log("xss")<\/script>');
+div.appendChild(text);
+// 不执行, 只是完全显示出来
+
+// <script>console.log('test')</script>
+var script = document.getElementsByTagName('script')[0];
+script.textContent = 'console.log("xss")'; // 不执行
+script.firstChild.nodeValue = 'console.log("xss")'; // 不执行
+
+//<style>
+//	#test {
+//		width: 50px;
+//		height: 50px;
+//	}
+//</style>
+var css = document.getElementsByTagName('style')[0];
+css.textContent = '#test {width: 50px; height: 50px; background: red;}';
+// 新样式生效
+
+var css = document.getElementsByTagName('style')[0];
+css.firstChild.nodeValue = '#test {width: 50px; height: 50px; background: red;}';
+// 新样式生效
+```
+
+
 
 
 
