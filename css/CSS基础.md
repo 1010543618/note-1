@@ -142,8 +142,6 @@ div, p {
 
 选择所有的 `<div>` 和所有的 `<p>`, 或者说选择集合 A={e | e 是 `<div>` 或者 e 是 `<p>`}
 
-
-
 ##### 空格 优先级 2
 
 ```css
@@ -198,16 +196,17 @@ h1~p {
 * `:last-child `选择 A = {e | e 是 `<p>` 且是某个元素的最后一个子元素}
 * `:first-of-type` 选择 A = {e | e 是 `<p>` 且是同级的所有 `<p>` 中第一个 `<p>` }
 * `:last-of-type` 选择 A = {e | e 是 `<p>` 且是同级的所有 `<p>` 中最后一个 `<p>` }
-* `:nth-child()` 选择 A = {e | e 是 `<p>` 且是某个元素的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1}
-* `:nth-last-child()` 选择 A = {e | e 是 `<p>` 且是某个元素从后往前的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1}
-* `:nth-of-type()` 选择 A = {e | e 是 `<p>` 且是同级的所有 `<p>` 的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1}
-* `:nth-last-of-type()` 选择 A = {e | e 是 `<p>` 且是同级的所有 `<p>` 中从后往前的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1}
+* `:nth-child()` 选择 A = {e | e 是 `<p>` 且是某个元素的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1, n>=0}
+* `:nth-last-child()` 选择 A = {e | e 是 `<p>` 且是某个元素从后往前的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1, n>=0}
+* `:nth-of-type()` 选择 A = {e | e 是 `<p>` 且是同级的所有 `<p>` 的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1, n>=0}
+* `:nth-last-of-type()` 选择 A = {e | e 是 `<p>` 且是同级的所有 `<p>` 中从后往前的第满足*表达式*个元素, 表达式可以是 odd, even, An+B,  表达式>=1, n>=0}
 * `:checked` 适用于 radio, checkbox, option(select)
 * `:disabled` 通常用于表单元素
 * `:enabled` 与 `:disabled` 相反
 * `:required` 通常用于表单元素
 * `:read-only` 通常用于表单元素
 * `:focus` 通常用于表单元素
+* `:not()` 常见用法, eg.`p:not(:last-child)`
 
 其他的参考 https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 

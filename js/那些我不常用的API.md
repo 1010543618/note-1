@@ -26,4 +26,7 @@
 * `elem.children`/`elem.firstElementChild`/`elem.lastElementChild`/`elem.previousElementSibling`/`elem.nextElementSibling` 是 `elem.childNodes`/`elem.firstChild`/`elem.lastChild`/`elem.previousSibling`/`elem.nextSibling` 的元素版, 其中 `elem.children` 是 `HTMLCollection`, 而 `elem.childNodes` 是 `NodeList`, 不过它们都是实时的. 这些都是 IE9+(IE8 也支持 `children`, 不过会包含注释节点)
 * `document.activeElement` 获取当前获得焦点的元素, 这个兼容性很好
 * `elem.scrollIntoView()` 如果参数为 true, 则窗口滚动至元素顶部与视口顶部(尽可能)平齐, 如果 false, 则元素尽可能全部出现在视口, 基本支持可以到 IE8
+* `event.type` 在某些情况下有那么点用, 比如想通过一个函数处理不同类型的事件
+* `document.createEvent()` 有些时候有点用
+* `elem.offsetParent` 获取元素的包含块元素
 

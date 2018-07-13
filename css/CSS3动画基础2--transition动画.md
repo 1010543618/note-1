@@ -182,7 +182,16 @@ transition-timing-function: frames(3);
 
 [示例代码](https://github.com/ta7sudan/front-end-demo/blob/master/css/transition/demo0.html)
 
-需要注意的是, 像 `display: none;` 或者插入/删除 DOM 是不算属性变化的, 所以不会触发 transition 动画.
+需要注意的是, 像 `display: none;` 或者插入/删除 DOM 是不算属性变化的, 所以不会触发 transition 动画, 不过添加新的 `transition` 动画是可以触发动画的. 即
+
+```css
+.new-transition {
+    transform: translate(50, 50);
+    transition: transform 0.3s ease;
+}
+```
+
+当我们把这样一个 class 添加到一个原本没有 `transition` 并且 `transform` 状态和这个有差异的元素上时, 会触发动画.
 
 
 

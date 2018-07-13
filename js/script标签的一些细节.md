@@ -371,13 +371,13 @@ yes or no 意味着该属性对结果没有影响. 通常我们的 `defer` 脚�
 
 #### 动态加载脚本
 
-由于历史原因, 我们可以通过很多种方式实现动态地往页面中插入一段脚本的操作, 比如 `document.write()`, 比如 `document.createElement()`, 比如 `innerHTML`, 比如 `textContent`, 比如 `document.createTextNode()`. 我们还可以通过这些方式插入外部脚本, 插入内部脚本, 插入 `async`/`defer` 的脚本. 让我们来考虑一些问题, 在使用不同的方式加载不同的脚本, 它们之间的执行顺序是怎样的? 是当前脚本(执行插入操作的脚本)停止执行, 开始执行新的脚本? 还是先执行当前脚本, 等当前脚本执行完再执行新的脚本?
+由于历史原因, 我们可以通过很多种方式实现动态地往页面中插入一段脚本的操作, 比如 `document.write()`, 比如 `document.createElement()`, 比如 `innerHTML`, 比如 `textContent`, 比如 `document.createTextNode()`, 比如 `fragment`. 我们还可以通过这些方式插入外部脚本, 插入内部脚本, 插入 `async`/`defer` 的脚本. 让我们来考虑一些问题, 在使用不同的方式加载不同的脚本, 它们之间的执行顺序是怎样的? 是当前脚本(执行插入操作的脚本)停止执行, 开始执行新的脚本? 还是先执行当前脚本, 等当前脚本执行完再执行新的脚本?
 
 首先我们来看一些 MDN 总结的细节:
 
 * 动态插入的脚本(当然是外部脚本, 内联脚本 `async` 不生效)默认是 `async` 的, 也就意味着动态插入的脚本执行是异步的(等当前脚本执行完再执行). 如果希望同步执行, 则建议设置 `script.async = false`
 * 动态插入的脚本 `defer` 默认是 false, 可以通过 `script.defer = true` 修改
-* 动态创建的脚本设置 `src` 时是不会开始下载的, 必须等到添加到 DOM 中才开始下载(补充下 Image 是在设置 `src` 时就开始下载图片)
+* 动态创建的脚本设置 `src` 时是不会开始下载的, 必须等到添加到 DOM 中才开始下载(补充下 Image 是在设置 `src` 时就开始下载图片, 另外, `<link>` 和 `<script>` 一样要在添加到 DOM 时才开始下周资源)
 
 现在来看一些 demo 好了.
 
@@ -625,7 +625,7 @@ css.firstChild.nodeValue = '#test {width: 50px; height: 50px; background: red;}'
 // 新样式生效
 ```
 
-
+总的来说, 就是能够实际创建 `<script>` DOM 元素的方法, 都能够执行脚本(除了 `innerHTML`), 比如 `document.createElement()`, 比如 `fragment`, 比如 `document.write()`, 而其他的都不能用来创建 DOM 元素, 比如 `textContent` `textNode`, 会被转义, 所以也不能用来动态创建并执行脚本.
 
 
 
@@ -682,6 +682,7 @@ css.firstChild.nodeValue = '#test {width: 50px; height: 50px; background: red;}'
 
 * 动态地改变 `<script>` 的 `src` `type` `nomodule` `async` `defer` `crossorigin` `integrity` 属性不会有什么直接影响, 只会在特定时机产生影响.(简而言之, 这些属性只会在需要它们的时候产生影响, 其他时候修改它们也不会有什么影响, 但是什么是需要它们的时候? 这事情就比较复杂了...)
 * **当通过 `document.write()` 插入脚本的时候, 脚本通常会执行, 并阻塞 HTML 解析和其他脚本执行(TODO, 待测试).**
+* IE8 不支持 `<script>` 的 `load` 事件
 
 
 

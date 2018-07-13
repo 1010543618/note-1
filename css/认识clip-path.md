@@ -18,7 +18,7 @@ BASIC_SHAPE ::= "inset()" | "circle()" | "ellipse()" | "polygon()"
 * `ellipse()` 椭圆区域裁剪, `ellipse([x y] [at <position>])`, x y 分别是 x 方向半轴长度和 y 方向半轴长度, x 的百分比相对于本地坐标系的盒子 x 方向的大小, y 的百分比相对于本地坐标系的盒子 y 方向的大小. eg. `clip-path: ellipse(20% 10% at 50% 50%)`
 * `polygon()` 多边形裁剪, `polygon([fill-rule] {,} {x y}{, x y})`, fill-rule 填充规则有两个值 `nonzero` `evenodd`, 即非零环绕规则和奇偶规则. 具体用法见 [W3C](https://www.w3.org/TR/SVG/painting.html#FillRuleProperty). x y 是每个点的坐标. x y 的百分比单位同 `ellipse()`. eg. `clip-path: polygon(60% 20%, 30% 40%, 50% 60%)`
 
-[示例代码]()
+[示例代码](https://github.com/ta7sudan/front-end-demo/blob/master/css/clippath/demo0.html)
 
 
 

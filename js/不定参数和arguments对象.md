@@ -155,9 +155,43 @@ console.log(test.length);
 
 
 
+##### 带有 Rest parameters 参数的函数不能使用严格模式, 否则报语法错误
+
+准确来说, 是如果函数参数带有以下几种的, 则函数都不能使用严格模式.
+
+* 默认参数
+* 参数解构
+* 剩余参数(Rest parameters)
+
+即下面这些都是不行的.
+
+```javascript
+function test(...args) {
+	'use strict';
+	console.log('test');
+}
+
+// or
+function test(a = 1) {
+	'use strict';
+	console.log('test');
+}
+
+// or
+function test({a, b}) {
+	'use strict';
+	console.log(a, b);
+}
+```
+
+
+
+
+
 #### 参考资料
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Strict_Non_Simple_Params
 * 深入理解 ES6
