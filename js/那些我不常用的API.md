@@ -29,4 +29,11 @@
 * `event.type` 在某些情况下有那么点用, 比如想通过一个函数处理不同类型的事件
 * `document.createEvent()` 有些时候有点用
 * `elem.offsetParent` 获取元素的包含块元素
+* `document.forms`, 可以通过 `document.forms['form0']` 来获取 `name="form0"` 的表单元素
+* `form.submit()`/`form.reset()` 等表单方法
+* `form.elements['key']` 获取表单中的 `name="key"` 的元素或元素集合
+* `textInput.select()` 文本框元素的 `select` 方法以及 `select` 事件
+* `JSON.stringify()` 的第二个过滤器参数或者对象的 `toJSON()` 方法
+* `JSON.parse()` 的第二个参数
+* `navigator.onLine`/`window.addEventListener('online')`/`window.addEventListener('offline')` 用来判定设备离线的 API(https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine, https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
 
