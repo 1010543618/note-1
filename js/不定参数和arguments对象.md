@@ -155,6 +155,14 @@ console.log(test.length);
 
 
 
+##### 使用 Rest parameters 也会使得 `arguments` 的行为和严格模式一样
+
+
+
+##### 默认参数以及 Rest parameters 相当于一个单独作用域的 `let` 绑定
+
+
+
 ##### 带有 Rest parameters 参数的函数不能使用严格模式, 否则报语法错误
 
 准确来说, 是如果函数参数带有以下几种的, 则函数都不能使用严格模式.
