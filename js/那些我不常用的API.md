@@ -5,7 +5,7 @@
 * `Object.getPrototypeOf()` 获取对象的原型, 当然也可以直接 `obj.__proto__`, 不过前者更标准一点
 * `Object.prototype.hasOwnProperty()` / `obj.hasOwnProperty()` 判断属性是否属于对象自身而非原型, 很重要的一点是它不会向上查找原型链, (据说)是唯一一个处理属性而不查找原型链的方法, 在需要排除掉继承来的属性时有用
 * `isFinite()` / `isNaN()` / `Number.MAX_VALUE` / `Number.MIN_VALUE` / `Number.MAX_SAFE_INTEGER` / `Number.MIN_SAFE_INTEGER`
-* 16 进制转义序列(以 `\x` 开头), eg. `'\xA9'`, unicode 转义序列(以 `\u` 开头接码点, 码点至少 4 字符), eg. `'\u00A9'`
+* 16 进制转义序列(以 `\x` 开头), eg. `'\xA9'`, Unicode 转义序列(以 `\u` 开头接码点, 码点至少 4 字符), eg. `'\u00A9'`, 另外变量也可以用 Unicode 转义序列, 比如 `var \u0061 = 'test'` 或 `var \u{61} = 'test'` 等价于 `var a = 'test'`
 * `Object.getOwnPropertyNames()` 获取对象所有属性的 key, 包括不可枚举的属性
 * `Object.preventExtensions()` 禁止为对象添加新属性
 * `JSON.stringify()` 的第二个参数的数组参数和函数参数

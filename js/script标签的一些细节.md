@@ -54,6 +54,8 @@
 
 除此之外, **浏览器会对一些 MIME type 的 `<script>` 报错并拒绝执行(当然还是会下载的)**, 比如 `image/*` `video/*` `audio/*` `text/csv`, 此时会触发 `<script>` 的 `error` 事件, 否则触发 `load` 事件.
 
+这里隐含了一点是, 浏览器如果不能识别 `<script type="module">` 的话, 则它也会认为是数据块, 并忽略掉 `src`, 这样就相当于浏览器如果不识别 `<script type="module">` 的话, 则不会下载模块文件, 也不会报错, 具有向后兼容性.
+
 
 
 #### ES6 模块
@@ -404,7 +406,7 @@ console.log('end load');
 
 
 
-#####动态创建的非 `async` 外部脚本按照添加到 DOM 的顺序执行(不是 DOM 中的顺序), 动态创建的任意外部脚本(无论是否 `async`/`defer`)都是在当前脚本执行完之后执行, 而不会中断当前脚本的执行, 即异步执行(可能在后面的非动态创建脚本之前执行, 也可能在后面的非动态创建脚本之后执行, 但一定在当前脚本之后执行), 并且它们都不会阻塞 `DOMContentLoaded`, 但是阻塞 `complete` 和 `window.onload`. 
+##### 动态创建的非 `async` 外部脚本按照添加到 DOM 的顺序执行(不是 DOM 中的顺序), 动态创建的任意外部脚本(无论是否 `async`/`defer`)都是在当前脚本执行完之后执行, 而不会中断当前脚本的执行, 即异步执行(可能在后面的非动态创建脚本之前执行, 也可能在后面的非动态创建脚本之后执行, 但一定在当前脚本之后执行), 并且它们都不会阻塞 `DOMContentLoaded`, 但是阻塞 `complete` 和 `window.onload`. 
 
 ```javascript
 console.log('start load');

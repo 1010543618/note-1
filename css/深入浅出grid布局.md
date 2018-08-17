@@ -1,4 +1,4 @@
-注意, 因为 grid 标准还在修订中, 以下内容可能会随着标准的改变而过时, 当然我也会尽量及时修正. 以下内容写于 2018/2/27.
+注意, 因为 grid 标准还在修订中, 以下内容可能会随着标准的改变而过时(比如据说之后的标准可能会将 `grid-row-gap` 和 `grid-column-gap` 改为 `row-gap` 和 `column-gap`, 以便与 `column` 布局统一), 当然我也会尽量及时修正. 以下内容写于 2018/2/27.
 
 本文中提到的 content-box 均是在未改变 `box-sizing` 的情况下适用.
 
@@ -16,7 +16,7 @@
 
 ![img102](./images/img102.png)
 
-像这样, 无论水平方向还是垂直方向的网格线都有自己的编号. 编号是网格线固有的属性, 无需开发者自己定义, 默认从 1 开始, 从上往下依次递增, 从左往右依次递增(但也不一定, 还与[书写模式]()有关). 网格线可以有自己的名字, 名字由开发者定义, 具体参考后文.
+像这样, 无论水平方向还是垂直方向的网格线都有自己的编号. 编号是网格线固有的属性, 无需开发者自己定义, 默认从 1 开始, 从上往下依次递增, 从左往右依次递增(但也不一定, 还与[书写模式](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)有关). 网格线可以有自己的名字, 名字由开发者定义, 具体参考后文.
 
 网格容器被网格线分隔成了 3x3 个单元格, 每个单元格我们称为**网格单元(grid item)**. 网格线也把网格容器分成了三行三列, 这里行和列我们都称为**网格轨道(grid track)**. 其中深色的矩形块 One, Two, Three, Four 我们称为**网格项目(grid item)**. 
 
@@ -176,7 +176,7 @@ grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
 .m2 {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 50px;
-    grid-auto-rows: 100px;
+	grid-auto-rows: 100px;
 }
 ```
 
@@ -706,7 +706,7 @@ for(j = 0; j < m; ++j) {
 
 #### 匿名网格项目
 
-如图匿名块级元素和匿名行内元素一样, 当出现这种情况的时候
+如同匿名块级元素和匿名行内元素一样, 当出现这种情况的时候
 
 ```html
 <div class="grid">
@@ -954,7 +954,7 @@ for(j = 0; j < m; ++j) {
 
 
 
-#### justify-content
+##### justify-content
 
 类似 `align-content`, 控制所有列轨道在网格容器内的对齐方式
 
@@ -1042,7 +1042,7 @@ grid-template-areas: "a a a b"
 
 
 
-#### grid-template
+##### grid-template
 
 划分网格单元的属性, 作用于网格容器, 是 `grid-template-columns` `grid-template-rows` `grid-template-areas` 的缩写.
 
@@ -1233,7 +1233,7 @@ grid-template-columns: repeat(auto-fit, 100px);
 
 #### 其他一些细节
 
-* `float` 和 `clear` 对网格项目是无效的, 但是 `float` 依然会改变网格项目 `display` 的计算值(参考 [复习float](./复习float.md)), 网格项目的 `display` 计算值默认为 `blockified`(The display value of a grid item is `blockified`: if the specified display of an in-flow child of an element generating a grid container is an inline-level value, it computes to its block-level equivalent)
+* `float` 和 `clear` 对网格项目是无效的, 但是 `float` 依然会改变网格项目 `display` 的计算值(参考 [深入理解float](./深入理解float.md)), 网格项目的 `display` 计算值默认为 `blockified`(The display value of a grid item is `blockified`: if the specified display of an in-flow child of an element generating a grid container is an inline-level value, it computes to its block-level equivalent)
 * `vertical-align` 对网格项目是无效的
 * `::first-line` `::first-letter` 不能用于网格容器
 * `z-index` 用来控制网格项目之间的叠加层级
