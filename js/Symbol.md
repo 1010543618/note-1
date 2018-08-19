@@ -193,6 +193,8 @@ var desc = Symbol.keyFor(s); // test
 
 但是它**只能查找容器中存在的 `Symbol` 实例的描述字符串, 如果容器中不存在该 `Symbol` 实例, 则返回 `undefined`**.
 
+最后补充一点, **这个容器是跨 window 跨 worker 共享的.**
+
 
 
 #### 遍历 Symbol 属性

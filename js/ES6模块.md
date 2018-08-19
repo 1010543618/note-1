@@ -44,7 +44,7 @@
   import { exportName as alias } from "module-name";
   import { exportName1 , exportName2 } from "module-name";
   import { exportName1 , exportName2 as alias2 , [...] } from "module-name";
-  import defaultExport, { export [ , [...] ] } from "module-name";
+  import defaultExport, { exportName [ , [...] ] } from "module-name";
   import defaultExport, * as name from "module-name";
   import "module-name";
   var promise = import(module-name);
