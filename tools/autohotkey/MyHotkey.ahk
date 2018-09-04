@@ -14,6 +14,10 @@ return
 if WinExist("ahk_exe chrome.exe")
 {
 	WinActivate, ahk_exe chrome.exe
+	WinGetPos, X, Y, Width, Height
+	xPos := X + Width - 25
+	yPos := Y + 200
+	Click, %xPos%, %yPos%
 }
 return
 
@@ -50,7 +54,5 @@ clipboard = `#%color%
 ; 把 color 的值发送到剪贴板
 return
 
-#IfWinActive Cmder  ; if in emacs
 +Capslock::Capslock ; make shift+Caps-Lock the Caps Lock toggle
 Capslock::Control   ; make Caps Lock the control button
-#IfWinActive        ; end if in emacs
