@@ -16,8 +16,5 @@
 
 * Map, Set, indexOf 的等值判断规则(https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_Collections)
 
-* 对象属性遍历
-
 * 连续赋值的机制(https://www.zhihu.com/question/41220520, https://zhuanlan.zhihu.com/p/25428739)
 
-  
