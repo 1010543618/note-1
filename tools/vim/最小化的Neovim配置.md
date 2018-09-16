@@ -39,6 +39,7 @@ set fdl=99 "set foldlevel
 
 "Themes
 "set t_Co=256 "256色, 对于win下vim就不用这个了,win下nvim有没有都一样
+"set termguicolors
 set bg=dark "set background 设置背景色
 colorscheme delek "还是用默认主题, win下其他主题显示都很蛋疼, 其他主题记得放到插件加载之后
 hi Pmenu      ctermfg=White ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
@@ -47,7 +48,7 @@ hi PmenuSbar  ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
 hi PmenuThumb ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
 hi CursorLine cterm=none ctermfg=DarkYellow ctermbg=none
 hi SpellBad cterm=none ctermfg=DarkRed ctermbg=none
-hi NonText guifg=bg "删除行号的波浪线, 然而这个win下nvim会报错找不到bg color
+"hi NonText guifg=bg "删除行号的波浪线, 然而这个win下nvim会报错找不到bg color
 hi NonText ctermfg=bg "删除行号的波浪线
 
 "Indent

@@ -74,15 +74,14 @@
   比如这是个人常用的一些 npm 配置.
 
   ```
-  PUPPETEER_DOWNLOAD_HOST = "https://npm.taobao.org/mirrors"
-  chromedriver_cdnurl = "https://npm.taobao.org/mirrors/chromedriver/"
-  disturl = "https://npm.taobao.org/dist"
-  electron_mirror = "https://npm.taobao.org/mirrors/electron/"
-  msvs_version = "2015"
-  phantomjs_cdnurl = "https://npm.taobao.org/mirrors/phantomjs/"
-  python = "C:/Devtools/Python2/python.exe"
-  registry = "https://registry.npmjs.org/"
-  sass_binary_site = "https://npm.taobao.org/mirrors/node-sass/"
+  PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
+  chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver/
+  disturl=https://npm.taobao.org/dist
+  electron_mirror=https://npm.taobao.org/mirrors/electron/
+  phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
+  sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+  msvs_version=2017
+  python=C:/Devtools/Python2/python.exe
   ```
 
 * 如果只是更新 README 的话, 官方给的操作是 `npm version patch` 然后 `npm publish`
