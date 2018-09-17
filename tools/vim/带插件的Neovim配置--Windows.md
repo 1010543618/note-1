@@ -49,7 +49,7 @@ hi PmenuThumb ctermfg=DarkGreen ctermbg=DarkGreen guifg=#ff0000 guibg=#00ff00
 hi CursorLine cterm=none ctermfg=DarkYellow ctermbg=none
 hi SpellBad cterm=none ctermfg=DarkRed ctermbg=none
 "hi NonText guifg=bg "删除行号的波浪线, 然而这个win下nvim会报错找不到bg color
-hi NonText ctermfg=bg "删除行号的波浪线
+"hi NonText ctermfg=bg "删除行号的波浪线
 
 "Indent
 set cin  "set cindent c语言自动缩进
@@ -87,16 +87,23 @@ inoremap <c-l> <Esc>A
 inoremap jk <Esc>
 nnoremap <Leader>p "+p
 vnoremap <Leader>y "+y
-"nnoremap <c-\> :vs<CR>
+nnoremap <c-\> :vs<CR>
 tnoremap <Esc> <C-\><C-n>
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+if !has('nvim')
+	exec "set <M-h>=\eh"
+	exec "set <M-l>=\el"
+	exec "set <M-j>=\ej"
+	exec "set <M-k>=\ek"
+	set ttimeout ttimeoutlen=50
+endif
+tnoremap <M-h> <C-\><C-n><C-w>h
+tnoremap <M-j> <C-\><C-n><C-w>j
+tnoremap <M-k> <C-\><C-n><C-w>k
+tnoremap <M-l> <C-\><C-n><C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 au FileType c,c++,java,php,javascript,css inoremap <c-j> <Esc>A;<CR>
 au FileType c,c++,java,php,javascript,css inoremap ;; <Esc>A;
 
