@@ -323,7 +323,9 @@ preload 发出的请求也会带 `Referer` 头(实测).
 
 同样由协议头和域名组成, 域名标识主机. 但是这里协议头有什么用我也不是很能 get, 毕竟 DNS 查找应该只需要域名才是.
 
-应用场景还是有的, 比如未来(比如下个页面)需要获取资源的域名可以通过它先完成 DNS 查找, 这样本机或者相关路由都可以提前缓存 DNS.
+另外据说 `<a>` 中 `href` 如果有域名, Chrome 和 Firefox 默认会进行 DNS prefetch, 但是 HTTPS 下默认不启用该功能.
+
+应用场景还是有的, 比如未来(比如下个页面)需要获取资源的域名可以通过它先完成 DNS 查找, 这样本机或者相关路由都可以提前缓存 DNS. 如果页面中存在许多域名, 或自己的域名不是什么知名域名没被 DNS 缓存的话, 这个 `dns-prefetch` 的作用还是比较明显的.
 
 
 
@@ -342,3 +344,4 @@ preload 发出的请求也会带 `Referer` 头(实测).
 * https://juejin.im/post/5a7fb09bf265da4e8e785c38
 * https://juejin.im/entry/59c3a866f265da066e17382b
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+* https://segmentfault.com/a/1190000004618719

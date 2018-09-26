@@ -31,6 +31,7 @@
 
 * `:q!`
 * `:wq`
+* `:vert term` 垂直切分打开 terminal
 
 
 
