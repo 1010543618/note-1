@@ -685,6 +685,8 @@ css.firstChild.nodeValue = '#test {width: 50px; height: 50px; background: red;}'
 * 动态地改变 `<script>` 的 `src` `type` `nomodule` `async` `defer` `crossorigin` `integrity` 属性不会有什么直接影响, 只会在特定时机产生影响.(简而言之, 这些属性只会在需要它们的时候产生影响, 其他时候修改它们也不会有什么影响, 但是什么是需要它们的时候? 这事情就比较复杂了...)
 * **当通过 `document.write()` 插入脚本的时候, 脚本通常会执行, 并阻塞 HTML 解析和其他脚本执行(TODO, 待测试).**
 * IE8 不支持 `<script>` 的 `load` 事件
+* 向 DOM 树中多次添加同一个外部脚本, 这个脚本会被多次执行
+* 已经添加的还未执行完的脚本, 即使将它从 DOM 中删除, 它还是会继续执行
 
 
 
