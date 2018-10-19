@@ -1,4 +1,4 @@
-﻿^!c::
+^!c::
 ifwinexist Cmder
 {
 	winactivate
@@ -15,8 +15,8 @@ if WinExist("ahk_exe chrome.exe")
 {
 	WinActivate, ahk_exe chrome.exe
 	WinGetPos, X, Y, Width, Height
-	xPos := X + Width - 25
-	yPos := Y + 200
+	xPos := X + 25
+	yPos := Y + Height - 40
 	Click, %xPos%, %yPos%
 }
 return
