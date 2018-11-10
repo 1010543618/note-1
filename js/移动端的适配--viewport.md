@@ -262,7 +262,7 @@ screen.width / getViewportSizeWidthWithoutBar().width // 2
 OK, 到这里, 我们还发现一个事情, 那就是 `width` 可以用来设置设备像素和 CSS 像素的比例, `initail-scale` 也能用来设置这个比例, 在特定情况下, 它们的作用是等价的.
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=2.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
 事实上, 这也是我们为了兼容浏览器时, 最常用的 `viewport` 设置了, 两个都写上, 就不会有什么问题.
@@ -442,6 +442,8 @@ screen.width / getViewportSizeWidthWithoutBar().width
 
 补充一下媒体查询的细节, 媒体查询中, `width` `height` `max-width` `max-height` `min-width` `min-height` 都是指的 `viewport` 的大小, 意味着它们中的 px 都是指 CSS 像素. 还有几个 `device-width` `device-height`, 不过这些已经废弃了, 所以我们也不用太关心它们.
 
+但是有个非标准的媒体查询条件是 `-webkit-device-pixel-ratio` 被移动端广泛支持(个人觉得非标准但是被支持的好过被标准废弃的...), 给我们提供了一个在 CSS 层面获取 dpr 的能力, 在必要的时候会有点用.
+
 
 
 #### Canvas
@@ -497,4 +499,5 @@ ctx.fillText(textString, x, y);
 * http://tgideas.qq.com/webplat/info/news_version3/804/7104/7106/m5723/201509/376281.shtml
 * http://colachan.com/post/3435
 * https://github.com/jawil/blog/issues/21
+* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio
 
