@@ -88,7 +88,7 @@ RenderLayer 们也构成一个树状结构. 根节点的 RenderLayer 和页面�
 5. 它是一个硬件加速的 `<iframe>` (比如 `<iframe>` 中有合成层)
 6. 它(所属的元素)有 `backface-visibility: hidden`
 7. 它为 `opacity` 或 `transform` 或 `filter` 或 `backdrop-filter` 创建了 animation 或 transition 动画(只会在动画过程中为其创建合成层, 动画开始之前或结束后都不会有合成层)
-8. 它有 `fiexd` 或 `sticky` 定位(实测好像并没有, 据说和屏幕 DPI 有关)
+8. 它有 `fixed` 或 `sticky` 定位(实测好像并没有, 据说和屏幕 DPI 有关)
 9. 它的 `will-change` 是 `opacity` `transform` `top` `bottom` `left` `right`, 其中 `top` 等必须在有非 `static` 定位的情况下才会创建合成层
 10. ...
 

@@ -772,7 +772,7 @@ var rj = Promise.reject(5);
 // test
 ```
 
-**`process.on('unhandledRejection')` 和 `window.onunhandledrejection` 执行回调函数的时机是和 Promise 状态变为 rejected 处于同一轮事件循环的.** 从上面的例子中也可以看出这一点.
+**`process.on('unhandledRejection')` 和 `window.onunhandledrejection` 执行回调函数的时机是和 Promise 状态变为 rejected 处于同一轮事件循环的.** 从上面的例子中也可以看出这一点. **需要注意 `window.onerror` 和 `window.addEventListener('error')` 是不能捕获 rejected 的异常的.**
 
 还有两个与 Promise 异常处理有关的事件, `process.on('rejectionHandled')` 和 `window.onrejectionhandled`, 它们两个的作用比较难以描述, 是在一个状态变为 rejected 却没有在同一轮事件循环中注册 `onRejected()` 的 Promise, 在之后又注册了 `onRejected()` 的时候触发. 还是看 demo.
 
