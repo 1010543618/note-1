@@ -38,4 +38,5 @@
 * `navigator.onLine`/`window.addEventListener('online')`/`window.addEventListener('offline')` 用来判定设备离线的 API(https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine, https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
 * `Number.prototype.toString()` 的参数, 用来将数字转指定进制的字符串, 可以是 2 - 36 进制
 * `setTimeout`/`setInterval` 后面的参数
+* `window.scrollTo([options])` 让页面滚动到某一位置, 高版本浏览器支持参数平滑滚动
 
