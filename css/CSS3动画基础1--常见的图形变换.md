@@ -18,7 +18,7 @@
 > - an element whose layout is governed by the CSS box model which is either a [block-level](https://www.w3.org/TR/CSS2/visuren.html#block-level) or [atomic inline-level element](https://www.w3.org/TR/CSS2/visuren.html#x13), or whose [display](https://drafts.csswg.org/css-display-3/#propdef-display) property computes to [table-row](https://drafts.csswg.org/css-display-3/#valdef-display-table-row), [table-row-group](https://drafts.csswg.org/css-display-3/#valdef-display-table-row-group), [table-header-group](https://drafts.csswg.org/css-display-3/#valdef-display-table-header-group), [table-footer-group](https://drafts.csswg.org/css-display-3/#valdef-display-table-footer-group), [table-cell](https://drafts.csswg.org/css-display-3/#valdef-display-table-cell), or [table-caption](https://drafts.csswg.org/css-display-3/#valdef-display-table-caption) [[CSS2\]](https://drafts.csswg.org/css-transforms-1/#biblio-css2)
 > - an element in the SVG namespace and not governed by the CSS box model which has the attributes [transform](https://www.w3.org/TR/SVG11/coords.html#TransformAttribute), `patternTransform` or `gradientTransform`
 
-简单来讲就是计算值为 `display: block;` `display: inline-block;` 以及 `display` 与表格相关的值的元素都是可变换元素. 当然, 还有一些 SVG 相关的.
+简单来讲就是计算值为 `display: block;` `display: inline-block;` 以及 `display` 与表格相关的值的元素都是可变换元素, 也就是说, `display: inline` 的元素是不能使用这些图形变换的, 无效. 当然, 还有一些 SVG 相关的.
 
 
 
