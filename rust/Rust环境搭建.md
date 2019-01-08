@@ -165,6 +165,94 @@ $ rustc -C debuginfo=2 main.rs
 
 然后 F5...断点成功, 然而给我看到的却是一片汇编...好吧, 今天先到这里吧, 有空再研究下怎么断到源文件.
 
+也是不懂为什么大家都会推荐在 Windows 上用 GNU toolchains 而不是 MSVC...本菜鸡本来就不是很会 C/C++ 这套工具链...不过后来发现了另一个路子, 简单方便.
+
+不要去用 LLDB 和 CodeLLDB 这个插件了, 也没 Python 什么事了, 那个 `settings.json` 也可以不需要了. 让我们还原到默认的 MSVC.
+
+```shell
+$ rustup set default-host x86_64-pc-windows-msvc
+```
+
+然后去下载这个 C/C++ 的 VSCode [插件](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)和这个[插件](https://marketplace.visualstudio.com/items?itemName=webfreak.debug), 不过这个 Native Debug 不是必要的, 如果不安装它, 需要项目目录下配置 `settings.json`.
+
+```json
+{
+	"debug.allowBreakpointsEverywhere": true
+}
+```
+
+然后配置 `launch.json`
+
+```json
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "(Windows) Launch",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/target/debug/rust.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": true
+		}
+	]
+}
+```
+
+就可以愉快地调试了.
+
+
+
+## Linter
+
+安装 clippy
+
+```shell
+$ rustup component add clippy
+```
+
+使用
+
+```shell
+$ cargo clippy
+```
+
+查看帮助
+
+```shell
+$ cargo clippy --help
+```
+
+关于它的配置参考[这里](https://github.com/rust-lang/rust-clippy#configuration). 另外这东西说是说和 Rust(rls) 这个插件集成了, 不过目前还没找到一个相关配置...不知道是否不需要配置, 另外也不知道怎么对单个文件做 lint.
+
+
+
+## Format
+
+安装 rust-fmt
+
+```shell
+$ rustup component add rustfmt
+```
+
+使用
+
+```shell
+$ cargo fmt
+```
+
+Rust (rls) 这个插件说是说集成了 rust-fmt, 不过实际测下来, 通过 VSCode 来格式化和通过 `cargo fmt` 格式化的效果并不一样, 找了半天也没找到这个插件怎么集成 rust-fmt, 除了一个保存时格式化, 但我并不想保存时格式化...
+
+另外这个 rust-fmt 好像也没提供什么配置, 默认 4 格空格缩进也让人很难受...另外也不知道怎么格式化单个文件
+
+*更新: 找到了 rust-fmt 的格式化配置, 参考[这里](https://github.com/rust-lang/rustfmt/blob/master/Configurations.md).*
+
 
 
 ## 参考资料
@@ -183,3 +271,10 @@ $ rustc -C debuginfo=2 main.rs
 * https://github.com/rust-lang/rls-vscode/issues/224
 * https://stackoverflow.com/questions/48978766/visual-studio-code-warning-rls-could-not-set-rust-src-path-for-racer-because-it
 * https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix
+* https://fungos.github.io/blog/2017/08/12/setting-up-a-rust-environment-on-windows/
+* https://github.com/Drops-of-Diamond/diamond_drops/wiki/Debugging-Rust-with-Visual-Studio-Code
+* https://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/
+* https://zhuanlan.zhihu.com/p/26944087
+* https://github.com/rust-lang/rust-clippy
+* https://github.com/rust-lang/rustfmt
+* 
