@@ -277,4 +277,3 @@ Rust (rls) 这个插件说是说集成了 rust-fmt, 不过实际测下来, 通�
 * https://zhuanlan.zhihu.com/p/26944087
 * https://github.com/rust-lang/rust-clippy
 * https://github.com/rust-lang/rustfmt
-* 
