@@ -12,11 +12,11 @@
 
 * Rust 的标识符基本上和其他语言差不多, 有一条需要注意就是单独的 `_` 不能作为标识符, 但是 `_a` 这样的是可以的. 如果需要调用 C 库中的函数, 比如 `match()`, 而 `match` 在 Rust 中又是关键字, 则可以使用原始标识符, 原始标识符以 `r#` 开头, `r#match()` 相当于调用了 C 库中的 `match()`
 
-* 通过 `let` 来声明变量, 如 `let foo = 5`, Rust 中, 变量默认是不可变的, 这里应该是指指向不可变, 如果需要可变的变量, 需要在变量名之前加上 `mut` 关键字, `let mut foo = 5`
+* 通过 `let` 来声明变量, 如 `let foo = 5`, Rust 中, 变量默认是不可变的, 应该是指绑定和值都不可变? 如果需要可变的变量, 需要在变量名之前加上 `mut` 关键字, `let mut foo = 5`
 
 * 通过 `const` 来声明常量, eg. `const MAX_POINTS: u32 = 10000;`
 
-* 一个问题是, 既然不可变变量都已经是不可变的了, 为什么还要叫变量? 又或者 `let mut a = 5` 和 `const a = 5` 有什么区别? 官方给出了一些[说明](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#differences-between-variables-and-constants)
+* 一个问题是, 既然不可变变量都已经是不可变的了, 为什么还要叫变量? 又或者 `let a = 5` 和 `const a = 5` 有什么区别? 官方给出了一些[说明](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#differences-between-variables-and-constants)
 
   * 常量不能使用 `mut` 关键字, 即没有 `const mut a: u32 = 5` 这样的操作
   * 常量使用 `const` 声明而不是 `let`, 并且必须注明类型
