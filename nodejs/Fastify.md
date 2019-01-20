@@ -84,7 +84,7 @@
 
 * 给 response 设置 schema 的话有利于 JSON 序列化的性能, 大约 2 - 3 倍
 
-* 路由以及各种 hook 的 handler 内的 `this` 都是当前作用域内的 Fastify 实例, 所以不是所有情况都要用 lambda 的, 另外装饰器如果定义的是函数, 那 `this` 也是当前作用域的 Fastify 实例
+* 路由以及各种 hook 的 handler 内的 `this` 都是当前作用域内的 Fastify 实例, 所以不是所有情况都要用 lambda 的, 另外装饰器如果定义的是函数, 那 `this` 也是当前作用域的 Fastify 实例. 需要注意的是 `setErrorHandler` 的 `this` 不是 Fastify 实例而是 `undefined`, 而 `setNotFoundHandler` 的 `this` 是 Fastify 的实例
 
 * 如果插件是 `async` 函数, 则不需要 `next` 参数, 而如果是普通函数, 则一定要记得调用 `next()`, 这点官方文档没有明确说明, 但是因为内部用了 `avvio`, 所以这点在 `avvio` 的[文档](https://github.com/mcollina/avvio#appusefunc-opts)中有体现
 
@@ -117,5 +117,5 @@
   * `setNotFoundHandler(fn)` 添加 404 的处理, 也可以用来给某一级下面的路由添加 404 而不是在全局添加 404
   * `setErrorHandler(fn)` 添加全局的错误处理, 也可以放在某一级插件中, 支持 `async` 函数
 
-* TODO
+* Fastify 默认会在每个路由的进入和离开时打 log, 如果需要取消这一行为, 需要给路由的 `loglevel` 配置提高到 `warn` 及以上, 或者通过全局的 pino 实例的 `level` 选项修改, 不过这样会导致所有的 `warn` 以下日志都不会输出, 而前者只是路由的 `warn` 以下日志不输出
 

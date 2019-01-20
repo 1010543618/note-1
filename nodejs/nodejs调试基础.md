@@ -109,6 +109,51 @@ DevTools 里配置为本地 9221 端口即可.
 
 
 
+#### Auto attach
+
+VSCode 还有个 Auto attach 的功能, 也很好用. 可以通过 `ctrl+shift+p` 或 `F1` 使用命令 `Debug: Toggle Auto Attach` 打开, 或者直接项目中创建 `settings.json` 文件(`.vscode` 目录下)添加配置
+
+```json
+{
+	"debug.node.autoAttach": "on"
+}
+```
+
+然后命令行
+
+```shell
+$ node --inspect-brk test.js
+```
+
+VSCode 就会自动为 test.js 附加调试器了.
+
+也可以配合 npm scripts 使用. 比如为了了解 Vue Cli 3.0 打包过程做了什么, 我们可以增加一个 npm scripts
+
+```json
+{
+    "scripts": {
+        "debug-cli": "node --inspect-brk ./node_modules/@vue/cli-service/bin/vue-cli-service.js build --modern"
+    }
+}
+```
+
+然后 VSCode 的配置中也建议增加一个
+
+```json
+{
+	"debug.node.autoAttach": "on",
+	"npm.enableScriptExplorer": true
+}
+```
+
+这样就可以在 VSCode 中找到这个调试按钮了
+
+![img4](./images/img4.png)
+
+在你想要的位置给断点, 之后可以愉快地调试 Vue CLI 了.
+
+
+
 #### 简单的性能分析
 
 为了进行一些简单的性能分析, 我们先写这样一段代码.
@@ -265,3 +310,4 @@ Statistical profiling result from isolate-0000026896B61F60-v8.log, (73 ticks, 1 
 * https://chromedevtools.github.io/devtools-protocol/
 * https://code.visualstudio.com/docs/nodejs/nodejs-debugging
 * https://nodejs.org/en/docs/guides/simple-profiling/
+* https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach
