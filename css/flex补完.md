@@ -330,6 +330,10 @@ So, 要使用 flex 布局首先要创建一个 flex 容器, 创建一个 flex �
 
 `flex-grow` 的所有 demo 的[源码](https://github.com/ta7sudan/front-end-demo/blob/master/css/flex/demo3.html)
 
+关于 `flex-grow`, 有一点值得补充, 具体内容参考文末.
+
+
+
 
 
 #### flex-shrink
@@ -920,6 +924,47 @@ WTF, 这是什么? 我们可以看到, 第一个 flex item 的高度是 60px, �
 
 
 
+#### `flex-grow` 和  flex item 的大小
+
+让我们来考虑一个问题, 一个元素/盒子的在某一方向上的大小, 由什么来决定? 首先考虑一个不是 flex item 的普通盒子, 如果不设置宽高, 默认情况下它的大小是由它内容的大小决定的. 再考虑一个没有设置 `flex-grow` 的 flex item, 默认情况下它的大小也是由它的内容决定的(可以换行). 然而, 当一个 flex item 设置了 `flex-grow`, 我们默认认为它的大小不再由内容决定, 而是由 flex container 决定.
+
+大部分时候, 我们这么想, 似乎也没什么问题, 但是当 flex item 设置了 `flex-grow`, 而它的内容由溢出了的话, 它的大小由什么决定呢? 我们可以通过一个例子来看一下.
+
+```html
+<div class="a">
+  <div class="b">
+    <div class="c"></div>
+  </div>
+</div>
+```
+
+```css
+.c {
+  width: 200px;
+  height: 100px;
+  background: green;
+}
+
+.a {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  background: red;
+}
+
+.b {
+  height: 120px;
+  background: blue;
+  flex-grow: 1;
+}
+```
+
+![img192](./images/img192.png)
+
+可以看到, 这里 `.b` 的水平方向大小, 其实还是由内容 `.c` 决定的, 尽管它设置了 `flex-grow: 1`. 事实上, [规范](https://drafts.csswg.org/css-flexbox/#min-size-auto)也是这么规定的, **flex item 主轴方向上的最小大小是内容的大小**.
+
+OK, 有了这些基本概念, 现在可以来看[这一篇](https://juejin.im/post/5c642f2ff265da2de660ecfc)中提到 Chrome 72 的一个改动, 不过实测下来, Chrome 72.0.3626.121 又给改了回来, 但是 FF 还是符合规范的, 所以这里有个坑点需要注意, 如果以后遇到了可以想起有这么回事.
+
 
 
 
@@ -943,3 +988,5 @@ WTF, 这是什么? 我们可以看到, 第一个 flex item 的高度是 60px, �
 * https://tympanus.net/codrops/css_reference/flexbox/
 * https://zhuanlan.zhihu.com/p/25303493
 * https://juejin.im/post/591d74ad128fe1005cfc21cd
+* https://drafts.csswg.org/css-flexbox/#min-size-auto
+* https://juejin.im/post/5c642f2ff265da2de660ecfc
