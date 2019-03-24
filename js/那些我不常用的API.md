@@ -39,4 +39,5 @@
 * `Number.prototype.toString()` 的参数, 用来将数字转指定进制的字符串, 可以是 2 - 36 进制
 * `setTimeout`/`setInterval` 后面的参数
 * `window.scrollTo([options])` 让页面滚动到某一位置, 高版本浏览器支持参数平滑滚动
+* `Number.prototype.toLocaleString()` 把数字转成某种形式字符串, eg. `var a = 123456; a.toLocaleString('en-US')` 得到 `123,456`
 
